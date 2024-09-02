@@ -14,11 +14,13 @@ Route::get('add', function(){
 Route::get('view', function(){
     return view('view');
 });
-
+Route::get('index', function(){
+    return view('home');
+});
 Route::get('addcate', [AddCategoryController::class, 'addcate'])->name('addcate');
 Route::post('addcate', [AddCategoryController::class, 'store'])->name('added');
-Route::get('add', [AddCategoryController::class, 'disp']);
+Route::get('add', [AddCategoryController::class, 'disp'])->name('add');
 Route::post('add', [AddPostController::class, 'store'])->name('addpost');
 Route::get('view/{id}', [ExtraController::class, 'show'])->name('view');
-// Route::get('show', [ExtraController::class, 'fetchcate']);
-Route::get('', [AddPostController::class, 'disp']);
+Route::get('/', [AddPostController::class, 'disp']);
+Route::get('index', [AddPostController::class, 'home']);

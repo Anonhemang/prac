@@ -30,7 +30,7 @@
         .inimg {
             width: 100%;
             margin: auto;
-            height:70% !important;
+            height: 70% !important;
         }
 
         .imbo {
@@ -85,8 +85,8 @@
                         <div class="tag">
                             <h5>Tags:</h5>
                             @foreach($data as $disp)
-                            <input type="checkbox" name="category[]" value="{{$disp->category}}"
-                                id=""> {{$disp->category}},&nbsp;
+                            <input type="checkbox" name="category[]" value="{{$disp->category}}" id="">
+                            {{$disp->category}},&nbsp;
                             @endforeach
 
                         </div>
@@ -111,17 +111,7 @@
         </form>
 
         <!-- End of 1 -->
-        <script>
-            ClassicEditor
-                .create(document.querySelector('#editor'))
-                .catch(error => {
-                    console.error(error);
-                });
-        </script>
-
-
     </div>
-
 
 </body>
 

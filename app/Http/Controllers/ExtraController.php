@@ -20,4 +20,9 @@ class ExtraController extends Controller
     //     // dd($categories);
     //     return view('show', compact('categories'));
     // }
+
+    public function addnew(){
+        return  view('addpost');
+
+    }
 }

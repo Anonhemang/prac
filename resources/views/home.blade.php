@@ -3,13 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
     <title>HomePage</title>
-
     <style>
         .all {
             margin: 5% 10%;
@@ -31,7 +29,7 @@
         .inimg {
             width: 100%;
             margin: auto;
-            height: 95%;
+            height: 100%;
         }
 
         .imbo {
@@ -51,6 +49,15 @@
         .all_cont {
             width: 80%;
             margin-top: 2%;
+        }
+
+        .sa {
+            width: 70%;
+        }
+
+        .topp {
+            display: flex;
+            width: 100%;
         }
 
         .pagi,
@@ -74,77 +81,59 @@
         .active {
             background-color: #4CAF50;
         }
-
-        .frm {
-            margin: 2% 4%;
-            /* width: 100%; */
-        }
     </style>
 </head>
 
 <body>
     <div class="topp">
-
         <!-- Search code -->
-
-
         <div class="sa">
-            <div class="frm">
-                <form method="POST">
-                    <input type="text" name="srch" placeholder="Search.." id="search"
-                        class="ms-5 mb-3 pe-5 ps-3 pt-1 pb-1" value="">
-                    <div id="result" class="result"></div>
-                    <input type="date" name="s_date" class="me-2">
-                    <input type="checkbox" name="tag[]" value="" class="ms-5">
-                    <input type="submit" name="searchsub" class="float-end btn btn-warning">
-                </form>
-            </div>
+            <input type="text" name="" placeholder="Search" id="search" class="mt-3 ms-5 pe-5 ps-3 pt-1 pb-1">
+            <div id="result" class="result"></div>
         </div>
-
         <script>
-            // $(document).ready(function () {
-            //     $('#search').keyup(function () {
-            //         var query = $(this).val();
-            //         if (query !== '') {
-            //             $.ajax({
-            //                 url: 'search.php',
-            //                 method: 'POST',
-            //                 data: { query: query },
-            //                 success: function (data) {
-            //                     $('#result').html(data);
-            //                 }
-            //             })
-            //         } else {
-            //             $('#result').html('');
-            //         }
-            //     })
-            // })
+            $(document).ready(function () {
+                $('#search').keyup(function () {
+                    var query = $(this).val();
+                    if (query !== '') {
+                        $.ajax({
+                            url: 'search.php',
+                            method: 'POST',
+                            data: { query: query },
+                            success: function (data) {
+                                $('#result').html(data);
+                            }
+                        })
+                    } else {
+                        $('#result').html('');
+                    }
+                })
+            })
         </script>
         <!-- Search end -->
+        <a href="{{route('add')}}" class="btn btn-info mt-3 me-5 float-end">Add New Post</a>
+        <a href="" class="btn btn-info me-5 mt-3 float-end">View All Categories</a>
     </div>
-
     <div class="all">
         <!-- Box 1 -->
         @foreach($data as $row)
-
         <div class="box">
             <div class="upr">
                 <div class="imbo">
-                    <img src="{{asset('images/'. $row->image)}}" alt=""  title="{{$row->image}}" class="inimg">
+                    <img src="{{asset('images/'. $row->image)}}" alt="" class="inimg">
                 </div>
                 <div class="all_cont">
                     <div class="title">
-                        <h2>{{$row->title}}</h2>
-
+                        <a href="" class="text-dark text-decoration-none">
+                            <h2>{{$row->title}}</h2>
+                        </a>
                     </div>
                     <hr>
                     <div class="content">
                         <p>{{$row->content}}</p>
                     </div>
                     <div class="tag">
-                        <h5>Tags:</h5>
-
-                        {{$row->category}}
+                        <h5>Tags: {{$row->category}}</h5>
                     </div>
                     <div class="date">
                         <small>{{$row->created_at}}</small>
@@ -153,14 +142,25 @@
             </div>
             <div class="oper float-end">
                 <a href="{{route('view', ['id'=>$row->id])}}" class="btn btn-primary">Read More</a>
+                <a href="" class="btn btn-success opr">Edit Post</a>
+                <a href="" class="btn btn-danger opr" onclick="return del()">Delete Post</a>
             </div>
         </div>
         @endforeach
 
+
+
+
+        <script>
+            function del() {
+                return confirm("Want to Delet This Data?");
+            }
+        </script>
         <!-- End of 1 -->
     </div>
     <div class="pagi">
         <p class="pa">
+
         </p>
     </div>
 </body>

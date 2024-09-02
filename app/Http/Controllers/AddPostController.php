@@ -29,10 +29,16 @@ class AddPostController extends Controller
             'content' =>$validate['content'],
             'category' =>implode(' , ', $request->input('category',[])),
         ]);
-        return redirect('add');
+        return redirect('/');
     }
     public function disp(){
         $data = AddPost::all();
         return view('show', compact('data'));
     }
+    public function home(){
+        $data = AddPost::all();
+        return view('home', compact('data'));
+    }
+
+   
 }
