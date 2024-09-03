@@ -9,19 +9,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('show');
 });
-Route::get('add', function(){
+Route::get('add', function () {
     return view('addpost');
 });
-Route::get('view', function(){
+Route::get('view', function () {
     return view('view');
 });
-Route::get('index', function(){
+Route::get('index', function () {
     return view('home');
 });
-Route::get('register', function(){
+Route::get('register', function () {
     return view('registration');
 });
-
+Route::get('login', function () {
+    return view('login');
+});
 
 Route::get('addcate', [AddCategoryController::class, 'addcate'])->name('addcate');
 Route::post('addcate', [AddCategoryController::class, 'store'])->name('added');
@@ -30,6 +32,8 @@ Route::post('add', [AddPostController::class, 'store'])->name('addpost');
 Route::get('view/{id}', [ExtraController::class, 'show'])->name('view');
 Route::get('/delete/{id}', [ExtraController::class, 'delete'])->name('delet');
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
+Route::post('login', [RegisterController::class, 'login'])->name('login');
+Route::post('login', [RegisterController::class, 'log'])->name('log');
 
 Route::get('/', [AddPostController::class, 'disp']);
 Route::get('index', [AddPostController::class, 'home']);

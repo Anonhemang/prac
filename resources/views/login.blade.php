@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Registration Page</title>
+    <title>Login Page</title>
     <style>
         .all {
             width: 100%;
@@ -30,23 +30,21 @@
 </head>
 
 <body>
-
     <div class="all">
 
         <div class="box">
-            <form method="post" action="{{route('register')}}">
+            <form method="post" action="">
                 @csrf
                 <center>
-                    <h3 class="fw-normal">Register</h3>
+                    <h3 class="fw-normal">Login</h3>
                 </center>
                 <input type="text" name="uname" class="inp" placeholder="Username" required>
                 <input type="password" name="pass" class="inp" placeholder="Password" required>
-                <center><input type="submit" value="Create Account" name="sub" class="btn btn-success mt-2"
-                        style="width:40%">
+                <center>
+                    <input type="submit" value="Login" name="sub" class="btn btn-success mt-2" style="width:40%">
                 </center>
             </form>
-            <!-- <a href="forgetpass.php" class="text-decoration-none text-primary mt-3">Forget Password?</a> -->
-            <a href="{{route('log')}}" class="text-decoration-none text-dark mt-2">Already Have an Account?</a>
+            <a href="{{route('register')}}" class="text-decoration-none text-dark mt-2">Don't Have an Account?</a>
         </div>
     </div>
 </body>
