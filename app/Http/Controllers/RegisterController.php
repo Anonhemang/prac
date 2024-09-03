@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
-  public function register(Request $request)
+  public function registeruser(Request $request)
   {
     $store = $request->validate([
       'uname' => 'required',
@@ -27,10 +27,6 @@ class RegisterController extends Controller
     }
   }
 
-  public function log()
-  {
-    return view('login');
-  }
 
 
   public function login(Request $request)
@@ -49,4 +45,10 @@ class RegisterController extends Controller
       'uname' => 'The provided credentials do not match our records.',
     ]);
   }
+
+  public function logview()
+  {
+    return view('login');
+  }
+
 }

@@ -45,6 +45,6 @@ Route::get('view/{id}', [ExtraController::class, 'show'])->name('view');
 Route::get('/delete/{id}', [ExtraController::class, 'delete'])->name('delet');
 
 // Registration Controller
-Route::post('/register', [RegisterController::class, 'register'])->name('register');
-Route::post('login', [RegisterController::class, 'login'])->name('login.process');
-// Route::post('login', [RegisterController::class, 'log'])->name('login');
+Route::post('register', [RegisterController::class, 'registeruser'])->name('register');
+Route::post('log', [RegisterController::class, 'login'])->name('login.process');
+Route::post('login', [RegisterController::class, 'logview'])->name('login');
