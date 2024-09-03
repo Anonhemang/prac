@@ -79,6 +79,9 @@
             margin: 2% 4%;
             /* width: 100%; */
         }
+        .tag{
+            display: flex;
+        }
     </style>
 </head>
 
@@ -139,12 +142,14 @@
                     </div>
                     <hr>
                     <div class="content">
-                        <p>{{$row->content}}</p>
+                        @php
+                            $content = $row->content;
+                            $show = substr($content, 0, 105)."....";
+                        @endphp
+                        <p>{{$show}}</p>
                     </div>
                     <div class="tag">
-                        <h5>Tags:</h5>
-
-                        {{$row->category}}
+                        <h4>Tags:</h4> &nbsp;<h5 class="mt-1">{{$row->category}}</h5>
                     </div>
                     <div class="date">
                         <small>{{$row->created_at}}</small>
