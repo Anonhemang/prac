@@ -3,6 +3,7 @@
 use App\Http\Controllers\AddCategoryController;
 use App\Http\Controllers\AddPostController;
 use App\Http\Controllers\ExtraController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -17,11 +18,18 @@ Route::get('view', function(){
 Route::get('index', function(){
     return view('home');
 });
+Route::get('register', function(){
+    return view('registration');
+});
+
+
 Route::get('addcate', [AddCategoryController::class, 'addcate'])->name('addcate');
 Route::post('addcate', [AddCategoryController::class, 'store'])->name('added');
 Route::get('add', [AddCategoryController::class, 'disp'])->name('add');
 Route::post('add', [AddPostController::class, 'store'])->name('addpost');
 Route::get('view/{id}', [ExtraController::class, 'show'])->name('view');
+Route::get('/delete/{id}', [ExtraController::class, 'delete'])->name('delet');
+Route::post('/register', [RegisterController::class, 'register'])->name('register');
+
 Route::get('/', [AddPostController::class, 'disp']);
 Route::get('index', [AddPostController::class, 'home']);
-Route::get('/delete/{id}', [ExtraController::class, 'delete'])->name('delet');
