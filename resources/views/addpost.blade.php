@@ -30,12 +30,12 @@
         .inimg {
             width: 100%;
             margin: auto;
-            height: 70% !important;
+            height: 50% !important;
         }
 
         .imbo {
             width: 30%;
-            margin: 1%;
+            margin: 0 1%;
             padding: 2%;
         }
 

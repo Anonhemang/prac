@@ -33,7 +33,7 @@
     <div class="all">
 
         <div class="box">
-            <form method="post" action="">
+            <form method="post" action="{{ route('login.process') }}">
                 @csrf
                 <center>
                     <h3 class="fw-normal">Login</h3>

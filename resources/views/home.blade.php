@@ -52,7 +52,7 @@
         }
 
         .sa {
-            width: 70%;
+            width: 85%;
         }
 
         .topp {
@@ -111,8 +111,8 @@
             })
         </script>
         <!-- Search end -->
-        <a href="{{route('add')}}" class="btn btn-info mt-3 me-5 float-end">Add New Post</a>
-        <a href="" class="btn btn-info me-5 mt-3 float-end">View All Categories</a>
+        {{-- <a href="" class="btn btn-info me-5 mt-3 float-end">View All Categories</a> --}}
+        <a href="{{route('add')}}" class="btn btn-info mt-3  float-end">Add New Post</a>
     </div>
     <div class="all">
         <!-- Box 1 -->
@@ -124,9 +124,7 @@
                 </div>
                 <div class="all_cont">
                     <div class="title">
-                        <a href="" class="text-dark text-decoration-none">
-                            <h2>{{$row->title}}</h2>
-                        </a>
+                        <h2>{{$row->title}}</h2>
                     </div>
                     <hr>
                     <div class="content">
@@ -143,7 +141,8 @@
             <div class="oper float-end">
                 <a href="{{route('view', ['id'=>$row->id])}}" class="btn btn-primary">Read More</a>
                 <a href="" class="btn btn-success opr">Edit Post</a>
-                <a href="{{route('delet', ['id'=>$row->id])}}" class="btn btn-danger opr" onclick="return del()">Delete Post</a>
+                <a href="{{route('delet', ['id'=>$row->id])}}" class="btn btn-danger opr" onclick="return del()">Delete
+                    Post</a>
             </div>
         </div>
         @endforeach
@@ -153,7 +152,7 @@
 
         <script>
             function del() {
-                return confirm("Want to Delet This Data?");
+                return confirm("Want to Delet This Data ?");
             }
         </script>
         <!-- End of 1 -->

@@ -46,7 +46,7 @@
                 </center>
             </form>
             <!-- <a href="forgetpass.php" class="text-decoration-none text-primary mt-3">Forget Password?</a> -->
-            <a href="{{route('log')}}" class="text-decoration-none text-dark mt-2">Already Have an Account?</a>
+            <a href="" class="text-decoration-none text-dark mt-2">Already Have an Account?</a>
         </div>
     </div>
 </body>
