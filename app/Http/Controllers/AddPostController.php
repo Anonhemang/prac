@@ -29,7 +29,7 @@ class AddPostController extends Controller
             'content' =>$validate['content'],
             'category' =>implode(' , ', $request->input('category',[])),
         ]);
-        return redirect('/');
+        return redirect('index');
     }
     public function disp(){
         $data = AddPost::all();
