@@ -9,7 +9,7 @@ class AddPost extends Model
 {
     use HasFactory;
     protected $table = 'post';
-    protected $fillable = ['image', 'title', 'content', 'category',];
-
+    protected $fillable = ['image', 'title', 'content', 'category','u_id','created_at'];
     protected $casts = ['category'=>'array'];
+    public $timestamps = false ;
 }

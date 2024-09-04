@@ -38,7 +38,8 @@ class RegisterController extends Controller
 
     if (Auth::attempt(['uname' => $credentials['uname'], 'password' => $credentials['pass']])) {
       $request->session()->regenerate();
-      return redirect()->intended('index'); // Redirect to the intended page after login
+      $request->session()->put('u_id', Auth::id());
+      return redirect()->intended('index');
     }
     
     return back()->withErrors([

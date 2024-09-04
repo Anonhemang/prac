@@ -128,7 +128,11 @@
                     </div>
                     <hr>
                     <div class="content">
-                        <p>{{$row->content}}</p>
+                        @php
+                            $cont = $row->content;
+                            $show = substr($cont,0 , 155)."....";
+                        @endphp
+                        <p>{{$show}}</p>
                     </div>
                     <div class="tag">
                         <h5>Tags: {{$row->category}}</h5>

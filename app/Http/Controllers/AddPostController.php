@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\AddPost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AddPostController extends Controller
 {
@@ -15,6 +16,7 @@ class AddPostController extends Controller
             'title' => 'required',
             'content' => 'required',
             'category' => 'array',
+            'created_at' => 'date',
         ]);
         if ($request->hasFile('image')) {
             $file = $request->file('image');
@@ -28,11 +30,13 @@ class AddPostController extends Controller
             'title' =>$validate['title'],
             'content' =>$validate['content'],
             'category' =>implode(' , ', $request->input('category',[])),
+            'u_id' => Auth::id(),
+            'created_at' => now()->format('Y-m-d'),
         ]);
         return redirect('index');
     }
     public function disp(){
-        $data = AddPost::all();
+        $data = AddPost::where('u_id', Auth::id())->get();
         return view('show', compact('data'));
     }
     public function home(){
