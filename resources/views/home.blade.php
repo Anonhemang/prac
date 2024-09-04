@@ -29,7 +29,7 @@
         .inimg {
             width: 100%;
             margin: auto;
-            height: 100%;
+            height:154.7px;
         }
 
         .imbo {
@@ -124,7 +124,12 @@
                 </div>
                 <div class="all_cont">
                     <div class="title">
-                        <h2>{{$row->title}}</h2>
+                        @php
+                        $c =$row->title;
+                        $cut = substr($c, 0 , 35)."...";
+                        
+                        @endphp
+                        <h2>{{$cut}}</h2>
                     </div>
                     <hr>
                     <div class="content">
@@ -151,9 +156,6 @@
         </div>
         @endforeach
 
-
-
-
         <script>
             function del() {
                 return confirm("Want to Delet This Data ?");
@@ -166,7 +168,6 @@
 
         </p>
     </div>
-    
 </body>
 
 </html>

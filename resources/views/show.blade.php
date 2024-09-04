@@ -31,7 +31,7 @@
         .inimg {
             width: 100%;
             margin: auto;
-            height: 95%;
+            height: 155px;
         }
 
         .imbo {
@@ -79,7 +79,8 @@
             margin: 2% 4%;
             /* width: 100%; */
         }
-        .tag{
+
+        .tag {
             display: flex;
         }
     </style>
@@ -133,18 +134,22 @@
         <div class="box">
             <div class="upr">
                 <div class="imbo">
-                    <img src="{{asset('images/'. $row->image)}}" alt=""  title="{{$row->image}}" class="inimg">
+                    <img src="{{asset('images/'. $row->image)}}" alt="" title="{{$row->image}}" class="inimg">
                 </div>
                 <div class="all_cont">
                     <div class="title">
-                        <h2>{{$row->title}}</h2>
+                        @php
+                        $c =$row->title;
+                        $cut = substr($c, 0 , 35)."...";
+                        @endphp
+                        <h2>{{$cut}}</h2>
 
                     </div>
                     <hr>
                     <div class="content">
                         @php
-                            $content = $row->content;
-                            $show = substr($content, 0, 105)."....";
+                        $content = $row->content;
+                        $show = substr($content, 0, 105)."....";
                         @endphp
                         <p>{{$show}}</p>
                     </div>
