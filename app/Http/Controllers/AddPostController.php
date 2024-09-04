@@ -36,12 +36,16 @@ class AddPostController extends Controller
         return redirect('index');
     }
     public function disp(){
-        $data = AddPost::where('u_id', Auth::id())->get();
+        $data = AddPost::all();
         return view('show', compact('data'));
     }
     public function home(){
-        $data = AddPost::all();
+        if(Auth::check()){
+            $data = AddPost::where('u_id', Auth::id())->get();
         return view('home', compact('data'));
+        }else{
+            return redirect()->route('login');
+        }
     }
 
    

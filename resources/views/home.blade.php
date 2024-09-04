@@ -52,7 +52,7 @@
         }
 
         .sa {
-            width: 85%;
+            width: 65%;
         }
 
         .topp {
@@ -111,8 +111,8 @@
             })
         </script>
         <!-- Search end -->
-        {{-- <a href="" class="btn btn-info me-5 mt-3 float-end">View All Categories</a> --}}
-        <a href="{{route('add')}}" class="btn btn-info mt-3  float-end">Add New Post</a>
+        <a href="{{route('add')}}" class="btn btn-info mt-3 me-5  float-end">Add New Post</a>
+        <a href="{{route('logout')}}" class="btn btn-info me-5 mt-3 float-end">Logout</a>
     </div>
     <div class="all">
         <!-- Box 1 -->
@@ -129,8 +129,8 @@
                     <hr>
                     <div class="content">
                         @php
-                            $cont = $row->content;
-                            $show = substr($cont,0 , 155)."....";
+                        $cont = $row->content;
+                        $show = substr($cont,0 , 155)."....";
                         @endphp
                         <p>{{$show}}</p>
                     </div>
@@ -166,6 +166,7 @@
 
         </p>
     </div>
+    
 </body>
 
 </html>

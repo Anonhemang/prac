@@ -52,4 +52,6 @@ class RegisterController extends Controller
     return view('login');
   }
 
+ 
+
 }
