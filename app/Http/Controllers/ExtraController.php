@@ -39,9 +39,33 @@ class ExtraController extends Controller
         return redirect()->route('login');
     }
     // today
-    function edit($id) {
+    function edit($id)
+    {
         $post = AddPost::find($id); //fetch post details
         $catt = AddCategory::all(); //fetch all categories from category table
         return view('editpost', ['data' => $post, 'catdata' => $catt]);
     }
+
+    function editpost(Request $request, $id)
+    {
+        $student = AddPost::find($id);
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = $file->getClientOriginalName();
+            $file->move(public_path('images'), $filename);
+            $student->image = $filename;
+        }
+        $student->title = $request->title;
+        $student->content = $request->content;
+        if (is_array($request->category)) {
+            $student->category = implode(' , ', $request->category);
+        }
+        if ($student->save()) {
+            return redirect('index');
+        } else {
+            return redirect('edit');
+        }
+    }
+    
 }

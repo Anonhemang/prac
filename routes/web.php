@@ -53,3 +53,4 @@ Route::get('login', [RegisterController::class, 'logview'])->name('login');
 
 // today -----------------------------------------------------------------------------------------------------
 Route::get('edit/{id}', [ExtraController::class, 'edit'])->name('edit');
+Route::put('/editpost/{id}', [ExtraController::class, 'editpost']);

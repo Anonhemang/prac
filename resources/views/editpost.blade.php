@@ -58,7 +58,7 @@
     <center><a href="{{'/addcate'}}" class="btn btn-success mt-3 mb-2">Add New Tag</a></center>
     <div class="all">
         <!-- Box 1 -->
-        <form method="post" action="" enctype="multipart/form-data">
+        <form method="post" action="/editpost/{{$data->id}}" enctype="multipart/form-data">
             <input type="hidden" name="_method" value="put">
             @csrf
             @method('PUT')
@@ -66,7 +66,7 @@
                 <div class="upr">
                     <div class="imbo">
                         <img src="{{asset('images/'.$data->image)}}" alt="" placeholder="Image" class="inimg">
-                        <input type="file" value="" name="image" id="">Current Image: {{$data->image}}
+                        <input type="file" name="image" id="">Current Image: {{$data->image}}
                     </div>
                     <div class="all_cont">
 
