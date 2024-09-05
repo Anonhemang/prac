@@ -102,7 +102,12 @@
                         class="ms-5 mb-3 pe-5 ps-3 pt-1 pb-1" value="">
                     <div id="result" class="result"></div>
                     <input type="date" name="s_date" class="me-2">
-                    <input type="checkbox" name="tag[]" value="" class="ms-5">
+
+                    <!-- Display all categories -->
+                    {{-- @foreach($homecat as $homecate)
+                    <input type="checkbox" name="ca[]" id=""> {{$homecate->category}}
+                    @endforeach --}}
+                    
                     <input type="submit" name="searchsub" class="float-end btn btn-warning">
                 </form>
             </div>

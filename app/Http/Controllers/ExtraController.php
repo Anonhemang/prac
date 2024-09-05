@@ -45,6 +45,12 @@ class ExtraController extends Controller
         $catt = AddCategory::all(); //fetch all categories from category table
         return view('editpost', ['data' => $post, 'catdata' => $catt]);
     }
+    public function homecat()
+    {
+        $homecat = AddCategory::all(); // Fetch all categories
+        // return view('/show', ['homecat'=>$homecat]); // Pass data to the view
+    }
+
 
     function editpost(Request $request, $id)
     {
@@ -67,5 +73,7 @@ class ExtraController extends Controller
             return redirect('edit');
         }
     }
+
+
 
 }

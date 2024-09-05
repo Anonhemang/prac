@@ -30,6 +30,11 @@ Route::get('login', function () {
     return view('login');
 });
 
+Route::get('cate', function () {
+    return view('cat');
+});
+
+
 // Add Category Controller
 Route::get('addcate', [AddCategoryController::class, 'addcate'])->name('addcate');
 Route::post('addcate', [AddCategoryController::class, 'store'])->name('added');
@@ -45,12 +50,17 @@ Route::get('view/{id}', [ExtraController::class, 'show'])->name('view');
 Route::get('/delete/{id}', [ExtraController::class, 'delete'])->name('delet');
 Route::get('logout', [ExtraController::class, 'logout'])->name('logout');
 
+// today -----------------------------------------------------------------------------------------------------
+Route::get('edit/{id}', [ExtraController::class, 'edit'])->name('edit');
+Route::put('/editpost/{id}', [ExtraController::class, 'editpost']);
+// Route::get('/show', [ExtraController::class, 'homecat']);
+
+
+
+
 // Registration Controller
 Route::post('register', [RegisterController::class, 'registeruser'])->name('register');
 Route::post('index', [RegisterController::class, 'login'])->name('login.process');
 Route::get('login', [RegisterController::class, 'logview'])->name('login');
 
 
-// today -----------------------------------------------------------------------------------------------------
-Route::get('edit/{id}', [ExtraController::class, 'edit'])->name('edit');
-Route::put('/editpost/{id}', [ExtraController::class, 'editpost']);

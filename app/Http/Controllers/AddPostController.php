@@ -38,7 +38,7 @@ class AddPostController extends Controller
     public function disp()
     {
         $data = AddPost::paginate(4);
-        return view('show', compact('data'));
+        return view('/show', compact('data'));
     }
     public function home()
     {
