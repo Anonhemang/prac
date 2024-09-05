@@ -67,5 +67,5 @@ class ExtraController extends Controller
             return redirect('edit');
         }
     }
-    
+
 }

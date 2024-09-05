@@ -26,27 +26,29 @@ class AddPostController extends Controller
         }
 
         AddPost::create([
-            'image' =>$validate['image'],
-            'title' =>$validate['title'],
-            'content' =>$validate['content'],
-            'category' =>implode(' , ', $request->input('category',[])),
+            'image' => $validate['image'],
+            'title' => $validate['title'],
+            'content' => $validate['content'],
+            'category' => implode(' , ', $request->input('category', [])),
             'u_id' => Auth::id(),
             'created_at' => now()->format('Y-m-d'),
         ]);
         return redirect('index');
     }
-    public function disp(){
+    public function disp()
+    {
         $data = AddPost::paginate(4);
         return view('show', compact('data'));
     }
-    public function home(){
-        if(Auth::check()){
+    public function home()
+    {
+        if (Auth::check()) {
             $data = AddPost::where('u_id', Auth::id())->get();
-        return view('home', compact('data'));
-        }else{
+            return view('home', compact('data'));
+        } else {
             return redirect()->route('login');
         }
     }
 
-   
+
 }

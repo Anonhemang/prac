@@ -82,7 +82,8 @@
         .tag {
             display: flex;
         }
-        .w-5.h-5{
+
+        .w-5.h-5 {
             width: 20px !important;
         }
     </style>
@@ -172,10 +173,11 @@
         <!-- End of 1 -->
     </div>
     <div class="pagi">
-       <center> <p class="pa">
-            {{$data->links()}}
-        </p>
-    </center>
+        <center>
+            <p class="pa">
+                {{$data->links()}}
+            </p>
+        </center>
     </div>
 </body>
 
