@@ -49,3 +49,7 @@ Route::get('logout', [ExtraController::class, 'logout'])->name('logout');
 Route::post('register', [RegisterController::class, 'registeruser'])->name('register');
 Route::post('index', [RegisterController::class, 'login'])->name('login.process');
 Route::get('login', [RegisterController::class, 'logview'])->name('login');
+
+
+// today -----------------------------------------------------------------------------------------------------
+Route::get('edit/{id}', [ExtraController::class, 'edit'])->name('edit');

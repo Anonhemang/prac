@@ -38,4 +38,10 @@ class ExtraController extends Controller
         session()->regenerateToken();
         return redirect()->route('login');
     }
+    // today
+    function edit($id) {
+        $post = AddPost::find($id); //fetch post details
+        $catt = AddCategory::all(); //fetch all categories from category table
+        return view('editpost', ['data' => $post, 'catdata' => $catt]);
+    }
 }

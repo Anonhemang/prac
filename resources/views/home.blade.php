@@ -149,7 +149,7 @@
             </div>
             <div class="oper float-end">
                 <a href="{{route('view', ['id'=>$row->id])}}" class="btn btn-primary">Read More</a>
-                <a href="" class="btn btn-success opr">Edit Post</a>
+                <a href="{{route('edit', ['id'=>$row->id])}}" class="btn btn-success opr">Edit Post</a>
                 <a href="{{route('delet', ['id'=>$row->id])}}" class="btn btn-danger opr" onclick="return del()">Delete
                     Post</a>
             </div>
