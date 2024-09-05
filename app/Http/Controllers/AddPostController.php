@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AddPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Database\Eloquent\Collection;
 class AddPostController extends Controller
 {
     public function store(Request $request)
@@ -43,7 +43,7 @@ class AddPostController extends Controller
     public function home()
     {
         if (Auth::check()) {
-            $data = AddPost::where('u_id', Auth::id())->get();
+            $data = AddPost::where('u_id', Auth::id())->paginate(4);
             return view('home', compact('data'));
         } else {
             return redirect()->route('login');

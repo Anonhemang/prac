@@ -62,10 +62,12 @@
 
         .pagi,
         .pa {
-            margin: 10%;
-            padding-bottom: 2% !important;
+            padding-bottom: 8% !important;
             display: inline;
             width: 100%;
+        }
+        .w-5.h-5 {
+            width: 20px !important;
         }
 
         .atag {
@@ -80,6 +82,12 @@
 
         .active {
             background-color: #4CAF50;
+        }
+        .flex-1{
+            display: none;
+        }
+        .py-2 {
+            text-decoration: none;
         }
     </style>
 </head>
@@ -164,9 +172,12 @@
         <!-- End of 1 -->
     </div>
     <div class="pagi">
-        <p class="pa">
-
-        </p>
+        <center>
+            <p class="pa">
+                {{$data->links()}}
+            </p>
+        </center>
+      
     </div>
 </body>
 

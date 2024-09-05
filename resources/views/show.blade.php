@@ -86,6 +86,12 @@
         .w-5.h-5 {
             width: 20px !important;
         }
+        .flex-1{
+            display: none;
+        }
+        .py-2 {
+            text-decoration: none;
+        }
     </style>
 </head>
 
