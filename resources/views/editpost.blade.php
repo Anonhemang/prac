@@ -116,8 +116,8 @@
                 <button type="submit" class="btn btn-success btn-lg mt-3">Edit Post</button>
             </center>
         </form>
+
         <!-- End of 1 -->
-        
     </div>
 
 </body>
