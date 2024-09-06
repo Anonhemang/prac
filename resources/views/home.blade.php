@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>HomePage</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <title>HomePage</title>
     <style>
         .all {
             margin: 5% 10%;
@@ -51,8 +52,12 @@
             margin-top: 2%;
         }
 
-        .sa {
-            width: 100%;
+        .sa{
+            padding: 2% 5%;
+        }
+
+        .sd{
+            justify-content: space-between
         }
 
         .topp {
@@ -130,14 +135,14 @@
                 <form method="GET" action="index">
                   
                     <input type="text" name="search" placeholder="Search.." id="search"
-                        class="ms-5 mb-3 pe-5 ps-3 pt-1 pb-1" value="">
-                    <div id="result" class="result"></div>
-                    {{-- <input type="date" name="s_date" class="me-2"> --}}
+                        class=" mb-3 pe-5 ps-3 pt-1 pb-1" value="">
+                    
                     @foreach($homecat as $cate)
-                    <input type="checkbox" name="cat[]" value="{{$cate->category}}" class="ms-4" id="">
+                    <input type="checkbox" name="cat[]" value="{{$cate->category}}" class="ms-5" id="">
                     {{$cate->category}}
                     @endforeach
-                    <button type="submit" class="btn  btn-sm btn-warning fw-light fs-6 float-end">Filter Data</button>
+                    <br><input type="date" name="s_date" class="me-2 pe-3 ps-3 pt-1 pb-1">
+                    <button type="submit" class="btn  btn-sm btn-warning fw-light fs-6 float-end">Filter Data<i class="bi bi-funnel-fill"></i></button>
                 </form>
             </div>
         </div>

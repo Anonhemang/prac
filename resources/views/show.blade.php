@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>HomePage</title>
 
     <style>
@@ -26,6 +26,14 @@
             margin-top: 2% !important;
             margin: auto;
 
+        }
+
+        .sa{
+            padding: 2% 5%;
+        }
+
+        .sd{
+            justify-content: space-between
         }
 
         .inimg {
@@ -76,6 +84,7 @@
 
         .frm {
             margin: 2% 4%;
+            display:contents;
             /* width: 100%; */
         }
 
@@ -110,6 +119,7 @@
                 width: 90%;
                 margin: auto;
             }
+            
         }
 
         @layer {
@@ -131,16 +141,15 @@
                 <form method="GET" action="">
               
                     <input type="text" name="search" placeholder="Search By Title.." id="search"
-                        class="ms-5 mb-3 pe-5 ps-3 pt-1 pb-1" value="">
-                    <div id="result" class="result"></div>
-                    {{-- <input type="date" name="s_date" class="me-2"> --}}
+                        class=" mb-3 pe-5 ps-3 pt-1 pb-1" value="">
 
                     @foreach($homecat as $cate)
-                    <input type="checkbox" name="cat" value="{{$cate->category}}" class="ms-4" id="">
-                    {{$cate->category}}
+                    <input type="checkbox" name="cat" value="{{$cate->category}}" class="ms-5" id="">
+                    {{$cate->category}} 
                     @endforeach
+                    <br><input type="date" name="s_date" class="me-2  pe-3 ps-3 pt-1 pb-1 ">
 
-                    <button type="submit" class="btn  btn-sm btn-warning fw-light fs-6 float-end">Filter Data</button>
+                    <button type="submit" class="btn  btn-sm btn-warning fw-light fs-6 float-end">Filter Data<i class="bi bi-funnel-fill"></i></button>
                     
                 </form>
             </div>
