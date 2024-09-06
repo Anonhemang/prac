@@ -93,6 +93,29 @@
         .py-2 {
             text-decoration: none;
         }
+
+        @media only screen and (max-width: 600px) {
+
+            .upr {
+                display: grid;
+            }
+
+            .imbo {
+                width: 90%;
+                margin: auto
+            }
+
+            .all_cont {
+                width: 90%;
+                margin: auto;
+            }
+        }
+
+        @layer {
+            * {
+                scrollbar-color: blue white;
+            }
+        }
     </style>
 </head>
 
@@ -155,7 +178,8 @@
             </div>
             <div class="oper float-end">
                 <a href="{{route('view', ['id'=>$row->id])}}" class="btn btn-primary">Read More</a>
-                <a href="{{route('edit', ['id'=>$row->id])}}" class="btn btn-success opr" onclick="return edit()">Edit Post</a>
+                <a href="{{route('edit', ['id'=>$row->id])}}" class="btn btn-success opr" onclick="return edit()">Edit
+                    Post</a>
                 <a href="{{route('delet', ['id'=>$row->id])}}" class="btn btn-danger opr" onclick="return del()">Delete
                     Post</a>
             </div>

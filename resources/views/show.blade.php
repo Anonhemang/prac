@@ -94,6 +94,29 @@
         .py-2 {
             text-decoration: none;
         }
+
+        @media only screen and (max-width: 600px) {
+
+            .upr {
+                display: grid;
+            }
+
+            .imbo {
+                width: 90%;
+                margin: auto
+            }
+
+            .all_cont {
+                width: 90%;
+                margin: auto;
+            }
+        }
+
+        @layer {
+            * {
+                scrollbar-color: black black;
+            }
+        }
     </style>
 </head>
 
