@@ -117,7 +117,7 @@
                     {{$cate->category}}
                     @endforeach
 
-                    <input type="submit" name="searchsub" class="float-end btn btn-warning">
+                    <input type="submit" value="Filter" name="searchsub" class="float-end btn btn-warning">
                 </form>
             </div>
         </div>

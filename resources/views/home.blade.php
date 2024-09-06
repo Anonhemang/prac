@@ -113,7 +113,7 @@
                     <input type="checkbox" name="cat[]" value="{{$cate->category}}" class="ms-4" id="">
                     {{$cate->category}}
                     @endforeach
-                    <input type="submit" name="searchsub" class="float-end btn btn-warning">
+                    <input type="submit" value="Filter" name="searchsub" class="float-end btn btn-warning">
                 </form>
             </div>
         </div>
@@ -155,7 +155,7 @@
             </div>
             <div class="oper float-end">
                 <a href="{{route('view', ['id'=>$row->id])}}" class="btn btn-primary">Read More</a>
-                <a href="{{route('edit', ['id'=>$row->id])}}" class="btn btn-success opr">Edit Post</a>
+                <a href="{{route('edit', ['id'=>$row->id])}}" class="btn btn-success opr" onclick="return edit()">Edit Post</a>
                 <a href="{{route('delet', ['id'=>$row->id])}}" class="btn btn-danger opr" onclick="return del()">Delete
                     Post</a>
             </div>
@@ -164,7 +164,10 @@
 
         <script>
             function del() {
-                return confirm("Want to Delet This Data ?");
+                return confirm("Want to Delet This Post ?");
+            }
+            function edit() {
+                return confirm("Want to Edit This Post ?");
             }
         </script>
         <!-- End of 1 -->
