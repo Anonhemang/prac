@@ -49,18 +49,10 @@ Route::get('index', [AddPostController::class, 'home']);
 Route::get('view/{id}', [ExtraController::class, 'show'])->name('view');
 Route::get('/delete/{id}', [ExtraController::class, 'delete'])->name('delet');
 Route::get('logout', [ExtraController::class, 'logout'])->name('logout');
-
-// today -----------------------------------------------------------------------------------------------------
 Route::get('edit/{id}', [ExtraController::class, 'edit'])->name('edit');
 Route::put('/editpost/{id}', [ExtraController::class, 'editpost']);
-// Route::get('/show', [ExtraController::class, 'homecat']);
-
-
-
 
 // Registration Controller
 Route::post('register', [RegisterController::class, 'registeruser'])->name('register');
 Route::post('index', [RegisterController::class, 'login'])->name('login.process');
 Route::get('login', [RegisterController::class, 'logview'])->name('login');
-
-

@@ -86,9 +86,11 @@
         .w-5.h-5 {
             width: 20px !important;
         }
-        .flex-1{
+
+        .flex-1 {
             display: none;
         }
+
         .py-2 {
             text-decoration: none;
         }
@@ -104,40 +106,23 @@
         <div class="sa">
             <div class="frm">
                 <form method="POST">
+                    @csrf
                     <input type="text" name="srch" placeholder="Search.." id="search"
                         class="ms-5 mb-3 pe-5 ps-3 pt-1 pb-1" value="">
                     <div id="result" class="result"></div>
                     <input type="date" name="s_date" class="me-2">
 
-                    <!-- Display all categories -->
-                    {{-- @foreach($homecat as $homecate)
-                    <input type="checkbox" name="ca[]" id=""> {{$homecate->category}}
-                    @endforeach --}}
-                    
+                    @foreach($homecat as $cate)
+                    <input type="checkbox" name="cat[]" value="{{$cate->category}}" class="ms-4" id="">
+                    {{$cate->category}}
+                    @endforeach
+
                     <input type="submit" name="searchsub" class="float-end btn btn-warning">
                 </form>
             </div>
         </div>
 
-        <script>
-            // $(document).ready(function () {
-            //     $('#search').keyup(function () {
-            //         var query = $(this).val();
-            //         if (query !== '') {
-            //             $.ajax({
-            //                 url: 'search.php',
-            //                 method: 'POST',
-            //                 data: { query: query },
-            //                 success: function (data) {
-            //                     $('#result').html(data);
-            //                 }
-            //             })
-            //         } else {
-            //             $('#result').html('');
-            //         }
-            //     })
-            // })
-        </script>
+
         <!-- Search end -->
     </div>
 

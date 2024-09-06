@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\AddCategory;
 use App\Models\AddPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,16 +36,21 @@ class AddPostController extends Controller
         ]);
         return redirect('index');
     }
-    public function disp()
+
+    public function disp(Request $request)
     {
         $data = AddPost::paginate(4);
-        return view('/show', compact('data'));
+        $homecat = AddCategory::all();
+        return view('/show', ['data' => $data, 'homecat' => $homecat]);
     }
+
     public function home()
     {
         if (Auth::check()) {
             $data = AddPost::where('u_id', Auth::id())->paginate(4);
-            return view('home', compact('data'));
+            $homecat = AddCategory::all();
+
+            return view('home', ['data' => $data, 'homecat' => $homecat]);
         } else {
             return redirect()->route('login');
         }
