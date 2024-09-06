@@ -141,13 +141,13 @@
                 <form method="GET" action="">
               
                     <input type="text" name="search" placeholder="Search By Title.." id="search"
-                        class=" mb-3 pe-5 ps-3 pt-1 pb-1" value="">
+                        class=" mb-3 pe-5 ps-3 pt-1 pb-1" value="{{ request('search') }}">
 
                     @foreach($homecat as $cate)
                     <input type="checkbox" name="cat" value="{{$cate->category}}" class="ms-5" id="">
                     {{$cate->category}} 
                     @endforeach
-                    <br><input type="date" name="s_date" class="me-2  pe-3 ps-3 pt-1 pb-1 ">
+                    <br><input type="date" value="{{ request('s_date') }}" name="s_date" class="me-2 pe-3 ps-3 pt-1 pb-1 ">
 
                     <button type="submit" class="btn  btn-sm btn-warning fw-light fs-6 float-end">Filter Data<i class="bi bi-funnel-fill"></i></button>
                     

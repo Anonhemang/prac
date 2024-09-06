@@ -43,50 +43,59 @@ class AddPostController extends Controller
     {
         // Base query for fetching all posts
         $query = AddPost::query();
-    
+
         // Check if there is a search term
         if ($request->has('search')) {
             $searchTerm = $request->input('search');
             // Modify the query to include search
             $query->where('title', 'like', "%{$searchTerm}%");
         }
-    
+        if ($request->has('s_date')) {
+            $s_date = $request->input('s_date');
+            $query->where('created_at', '=', $s_date);
+        }
+
         // Paginate the results (or adjust as needed)
         $data = $query->paginate(4);
-    
+
         // Fetch all categories
         $homecat = AddCategory::all();
-    
+
         return view('show', [
             'data' => $data,
             'homecat' => $homecat,
-            'searchTerm' => $searchTerm ?? ''
+            'searchTerm' => $searchTerm ?? '',
+            's_date' => $s_date ?? '',
+
         ]);
     }
-    
+
 
     public function home(Request $request)
     {
         if (Auth::check()) {
             $query = AddPost::where('u_id', Auth::id());
-    
+
             // Check if there is a search term
             if ($request->has('search')) {
                 $searchTerm = $request->input('search');
                 // Modify the query to include search
                 $query->where('title', 'like', "%{$searchTerm}%");
             }
-           
-    
+            if ($request->has('s_date')) {
+                $s_date = $request->input('s_date');
+                $query->where('created_at', '=', $s_date);
+            }
+
             // Get paginated results
             $data = $query->paginate(4);
-    
+
             // Fetch categories
             $homecat = AddCategory::all();
-    
+
             // Get username from session
             $username = session('name');
-    
+
             return view('home', [
                 'data' => $data,
                 'homecat' => $homecat,
