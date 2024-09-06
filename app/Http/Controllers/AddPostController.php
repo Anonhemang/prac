@@ -8,6 +8,8 @@ use App\Models\AddPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\DB;
+
 class AddPostController extends Controller
 {
     public function store(Request $request)
@@ -39,22 +41,61 @@ class AddPostController extends Controller
 
     public function disp(Request $request)
     {
-        $data = AddPost::paginate(4);
+        // Base query for fetching all posts
+        $query = AddPost::query();
+    
+        // Check if there is a search term
+        if ($request->has('search')) {
+            $searchTerm = $request->input('search');
+            // Modify the query to include search
+            $query->where('title', 'like', "%{$searchTerm}%");
+        }
+    
+        // Paginate the results (or adjust as needed)
+        $data = $query->paginate(4);
+    
+        // Fetch all categories
         $homecat = AddCategory::all();
-        return view('/show', ['data' => $data, 'homecat' => $homecat]);
+    
+        return view('show', [
+            'data' => $data,
+            'homecat' => $homecat,
+            'searchTerm' => $searchTerm ?? ''
+        ]);
     }
+    
 
-    public function home()
+    public function home(Request $request)
     {
         if (Auth::check()) {
-            $data = AddPost::where('u_id', Auth::id())->paginate(4);
+            $query = AddPost::where('u_id', Auth::id());
+    
+            // Check if there is a search term
+            if ($request->has('search')) {
+                $searchTerm = $request->input('search');
+                // Modify the query to include search
+                $query->where('title', 'like', "%{$searchTerm}%");
+            }
+           
+    
+            // Get paginated results
+            $data = $query->paginate(4);
+    
+            // Fetch categories
             $homecat = AddCategory::all();
-
-            return view('home', ['data' => $data, 'homecat' => $homecat]);
+    
+            // Get username from session
+            $username = session('name');
+    
+            return view('home', [
+                'data' => $data,
+                'homecat' => $homecat,
+                'username' => $username,
+                'searchTerm' => $searchTerm ?? ''
+            ]);
         } else {
-            return redirect()->route('login');
+            return redirect('login');
         }
     }
-
 
 }

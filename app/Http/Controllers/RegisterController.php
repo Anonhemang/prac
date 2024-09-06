@@ -39,12 +39,19 @@ class RegisterController extends Controller
     if (Auth::attempt(['uname' => $credentials['uname'], 'password' => $credentials['pass']])) {
       $request->session()->regenerate();
       $request->session()->put('u_id', Auth::id());
+      $request->session()->put('name', $credentials['uname']);
       return redirect()->intended('index');
     }
-    
+
     return back()->withErrors([
       'uname' => 'The provided credentials do not match our records.',
     ]);
+  }
+
+  public function index()
+  {
+    $username = session('name');
+    return view('home', compact('username'));
   }
 
   public function logview()
@@ -52,6 +59,6 @@ class RegisterController extends Controller
     return view('login');
   }
 
- 
+
 
 }

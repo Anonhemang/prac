@@ -4,6 +4,7 @@ use App\Http\Controllers\AddCategoryController;
 use App\Http\Controllers\AddPostController;
 use App\Http\Controllers\ExtraController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -44,6 +45,9 @@ Route::get('add', [AddCategoryController::class, 'disp'])->name('add');
 Route::post('add', [AddPostController::class, 'store'])->name('addpost');
 Route::get('/', [AddPostController::class, 'disp']);
 Route::get('index', [AddPostController::class, 'home']);
+// Route::get('search', [AddPostController::class , 'search']);
+
+// Route::get('search', [SearchController::class , 'search']);
 
 // Extra Controller
 Route::get('view/{id}', [ExtraController::class, 'show'])->name('view');

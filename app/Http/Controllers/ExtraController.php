@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\AddCategory;
 use App\Models\AddPost;
 use Illuminate\Http\Request;
-use Illuminate\Auth\Events\Logout;
 use Illuminate\Support\Facades\Auth;
 
 class ExtraController extends Controller

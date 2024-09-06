@@ -128,19 +128,20 @@
 
         <div class="sa">
             <div class="frm">
-                <form method="POST">
-                    @csrf
-                    <input type="text" name="srch" placeholder="Search.." id="search"
+                <form method="GET" action="">
+              
+                    <input type="text" name="search" placeholder="Search By Title.." id="search"
                         class="ms-5 mb-3 pe-5 ps-3 pt-1 pb-1" value="">
                     <div id="result" class="result"></div>
-                    <input type="date" name="s_date" class="me-2">
+                    {{-- <input type="date" name="s_date" class="me-2"> --}}
 
                     @foreach($homecat as $cate)
-                    <input type="checkbox" name="cat[]" value="{{$cate->category}}" class="ms-4" id="">
+                    <input type="checkbox" name="cat" value="{{$cate->category}}" class="ms-4" id="">
                     {{$cate->category}}
                     @endforeach
 
-                    <input type="submit" value="Filter" name="searchsub" class="float-end btn btn-warning">
+                    <button type="submit" class="btn  btn-sm btn-warning fw-light fs-6 float-end">Filter Data</button>
+                    
                 </form>
             </div>
         </div>
