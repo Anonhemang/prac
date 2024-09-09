@@ -144,7 +144,7 @@
                         class=" mb-3 pe-5 ps-3 pt-1 pb-1" value="{{ request('search') }}">
 
                     @foreach($homecat as $cate)
-                    <input type="checkbox" name="cat" value="{{$cate->category}}" class="ms-5" id="">
+                    <input type="checkbox" name="cat[]" value="{{$cate->category}}" class="ms-5" id="" {{ in_array($cate->category, request('cat', [])) ? 'checked' : '' }}>
                     {{$cate->category}} 
                     @endforeach
                     <br><input type="date" value="{{ request('s_date') }}" name="s_date" class="me-2 pe-3 ps-3 pt-1 pb-1 ">

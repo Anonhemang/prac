@@ -50,6 +50,14 @@ class AddPostController extends Controller
             $s_date = $request->input('s_date');
             $query->where('created_at', '=', $s_date);
         }
+
+        // category
+        if ($request->filled('cat')) {
+            $categories = $request->input('cat');
+            $implodedCategories = implode(' , ', $categories);
+            $query->where('category', 'like', "%{$implodedCategories}%");
+        }
+
         $data = $query->paginate(4);
         $homecat = AddCategory::all();
         return view('show', [
@@ -57,6 +65,7 @@ class AddPostController extends Controller
             'homecat' => $homecat,
             'searchTerm' => $searchTerm ?? '',
             's_date' => $s_date ?? '',
+            'category' => $categories ?? '',
 
         ]);
     }
@@ -71,6 +80,12 @@ class AddPostController extends Controller
                 $searchTerm = $request->input('search');
                 $query->where('title', 'like', "%{$searchTerm}%");
             }
+            
+            if ($request->filled('cat')) {
+                $categories = $request->input('cat');
+                $implodedCategories = implode(' , ', $categories);
+                $query->where('category', 'like', "%{$implodedCategories}%");
+            }
             if ($request->filled('s_date')) {
                 $s_date = $request->input('s_date');
                 $query->whereDate('created_at', '=', $s_date);
@@ -83,7 +98,8 @@ class AddPostController extends Controller
                 'homecat' => $homecat,
                 'username' => $username,
                 'searchTerm' => $searchTerm ?? '',
-                's_date' => $s_date ?? ''
+                's_date' => $s_date ?? '',
+                'category' => $categories ?? '',
             ]);
         } else {
             return redirect('login');
