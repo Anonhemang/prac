@@ -24,7 +24,7 @@
             width: 80%;
             margin-top: 2% !important;
             margin: auto;
-
+            background-color: rgba(77, 69, 69, 0.3);
         }
 
         .inimg {
