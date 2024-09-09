@@ -25,6 +25,8 @@
             margin-top: 2% !important;
             margin: auto;
             background-color: rgba(77, 69, 69, 0.3);
+            border: 0px;
+            box-shadow: 2px 2px 10px 1px rgba(131, 56, 202, 0.5);
         }
 
         .inimg {
