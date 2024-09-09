@@ -33,7 +33,7 @@ class ExtraController extends Controller
         Auth::logout();
         session()->flush();
         session()->forget('u_id');
-        session()->invalidate(); // Invalidate the session
+        session()->invalidate();
         session()->regenerateToken();
         return redirect()->route('login');
     }
