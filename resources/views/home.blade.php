@@ -208,7 +208,7 @@
     <div class="pagi">
         <center>
             <p class="pa">
-                {{$data->links()}}
+                {{$data->appends(request()->input())->links()}}
             </p>
         </center>
 
